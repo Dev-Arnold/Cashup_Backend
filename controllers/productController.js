@@ -5,8 +5,6 @@ const addProduct = async (req,res,next)=>{
         const {productName,quantity,price,category,brand,shortDescription,longDescription,features} = req.body
         const productImage = req.file ? req.file.path : null;
 
-        // console.log('Request body:', req.body);
-        // console.log('Uploaded file:', req.file);
 
         const product = new Product({
             productName,
