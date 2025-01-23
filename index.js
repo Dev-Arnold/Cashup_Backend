@@ -6,6 +6,9 @@ import productRoutes from './routes/productRoutes.js'
 import errorHandler from './middlewares/errorHandler.js'
 const port = process.env.PORT || 2500
 import dotenv from 'dotenv';
+// const { swaggerDocs, swaggerUi } = require('./config/swagger'); 
+import { swaggerDocs,swaggerUi } from './dbConfig/swagger.js'
+
 dotenv.config();
 app.use(express.json());  
 
@@ -14,6 +17,8 @@ console.log(process.env.PORT)
 app.use('/api/product', productRoutes);
 
 app.use('/api/user',userRoutes)
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use(errorHandler)
 

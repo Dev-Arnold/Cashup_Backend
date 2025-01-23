@@ -98,4 +98,4 @@ const updateProduct = async (req,res,next)=>{
 }
 
 
-export { addProduct, allProducts , deleteProduct , updateProduct }
+export { addProduct, allProducts , deleteProduct , updateProduct, getOneProd}
