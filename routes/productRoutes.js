@@ -69,8 +69,6 @@ router.post("/", upload.single("productImage"), (req, res, next) => {
  *   get:
  *     summary: Get all products
  *     tags: [Products]
- *     security:
- *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: List of all products
@@ -89,12 +87,8 @@ router.post("/", upload.single("productImage"), (req, res, next) => {
  *                     type: string
  *                   price:
  *                     type: number
- *       401:
- *         description: Unauthorized - No token or invalid token
- *       403:
- *         description: Forbidden - Insufficient permissions
  */
-router.get("/", authorize(["Admin", "Staff", "User"]), allProducts);
+router.get("/", allProducts);
 
 /**
  * @swagger
